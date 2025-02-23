@@ -22,7 +22,7 @@
 ### :seedling: About Me 
 I am a **Computer Science New Graduate (Class of 2024)** from the University of La Verne.  
 
-- :telescope: **Experience**: I served as a Student Software Development Lead, contributing to both frontend and backend for the University of La Verne's Web Services and Research Initiatives.
+- :telescope: **Experience**: I served as a Software Development Engineer for two years, contributing to Data Analysis and Research Initiatives for the University of La Verne.
 
 - :rocket: **Current Focus**: Building a **3D Game Engine** and diving deeper into **Low-Level Programming** and **Memory Management**.
 
