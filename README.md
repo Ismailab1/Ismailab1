@@ -29,7 +29,7 @@ I am a **Computer Science New Graduate (Class of 2024)** from the University of 
 - :zap: **Interests**: Fishing, paintball/airsoft, and creating graphics applications.
 
 - :mailbox: **How to reach me**: 
-  [![Linkedin Badge](https://img.shields.io/badge/-Ismail%20Abdullah-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ismail-abdullah-a22923229/)
+  [![LinkedIn][Linkedin Badge](https://img.shields.io/badge/-Ismail%20Abdullah-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ismail-abdullah-a22923229/)
 
 - :smiley: **Pronouns**: He/Him
 
