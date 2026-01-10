@@ -22,16 +22,57 @@
 ### :seedling: About Me 
 I am a **Computer Science Graduate (Class of 2024)** from the University of La Verne.   
 
-- :telescope: **Experience**: I served as a Software Development Engineer for two years, contributing to Data Analysis and Research Initiatives for the University of La Verne. 
+- :briefcase: **Current Role**: Software Development Intern at **SupplyBistro (GustoMarket)** (November 2025 - Present)
 
-- :rocket: **Current Focus**: Building a **3D Game Engine** and developing **AI-powered web applications** with Azure OpenAI. 
+- :telescope: **Previous Experience**: Software Development Engineer at University of La Verne (2 years) - Data Analysis and Research Initiatives
 
-- :zap: **Interests**: Low-level programming, memory management, AI/ML applications, data processing automation, and creating graphics applications.
+- :rocket: **Current Focus**: Building full-stack e-commerce solutions with **Django**, **Python**, **JavaScript**, and **AWS cloud services**
+
+- :zap: **Interests**: Full-stack development, database architecture, AI/ML applications, system optimization, and creating scalable web applications
 
 - :mailbox: **How to reach me**: 
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ismail-abdullah-a22923229/)
 
 - :smiley: **Pronouns**: He/Him
+
+---
+
+### :briefcase: Current Role at SupplyBistro (GustoMarket)
+**Software Development Intern** | November 2025 - Present
+
+#### 🎯 Key Achievements
+
+**Full-Stack Feature Development:**
+- 🛒 **Anonymous Customer POS System** - Engineered walk-in customer processing with Django signals, achieving zero-friction checkout for suppliers
+- 📱 **Mobile Order Management** - Developed unified cart system with localStorage persistence, one-tap checkout, and RFQ (Request for Quote) support
+- 🗺️ **Address Management System** - Architected soft-delete solution with audit trails, fixing data leakage affecting 1,082+ addresses
+- 📄 **Document Upload System** - Built FormData/Fetch API-based file upload with client/server validation supporting PDF, PNG, JPG formats
+
+**Database & Architecture:**
+- 🔧 Fixed critical PostgreSQL query issues in supplier directory (CompanyRelationship schema optimization)
+- 📊 Implemented database migrations with rollback strategies for production safety
+- 🏗️ Designed dual-column tracking systems for business vs. technical states
+- 🔍 Created comprehensive management commands for data synchronization and validation
+
+**Bug Fixes & System Optimization:**
+- ⚡ Resolved `TypeError: float(None)` crashes in seller dashboard analytics
+- 🎨 Fixed UI/UX issues including notification dropdowns, Gmail/Outlook button bugs
+- 🔐 Implemented CSRF protection configurations for development/production environments
+- 📈 Enhanced DataTables with custom zero-records messaging and search functionality
+
+#### 💻 Technologies Used
+- **Backend**: Python, Django (5.2.8), PostgreSQL, Azure Functions
+- **Frontend**: JavaScript, HTML5, CSS3, Bootstrap, jQuery
+- **Cloud**: Azure OpenAI, Azure Cognitive Services
+- **DevOps**: Git, Docker, CI/CD with GitHub Actions
+- **Tools**: FormData API, Socket.io, DataTables, RESTful APIs
+
+#### 📊 Impact Metrics
+- ✅ **30+ Unit Tests** created for POS regression and feature validation
+- ✅ **508 Invalid Addresses** flagged and hidden from production UI
+- ✅ **3 Database Migrations** deployed with zero downtime
+- ✅ **20+ Pull Requests** merged addressing critical bugs and features
+- ✅ **7-Step Deployment Workflow** documented for production safety
 
 ---
 
