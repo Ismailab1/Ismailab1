@@ -55,15 +55,16 @@ I am a **Computer Science Graduate (Class of 2024)** from the University of La V
 - 🔍 Created comprehensive management commands for data synchronization and validation
 
 **Bug Fixes & System Optimization:**
-- ⚡ Resolved `TypeError: float(None)` crashes in seller dashboard analytics
-- 🎨 Fixed UI/UX issues including notification dropdowns, Gmail/Outlook button bugs
-- 🔐 Implemented CSRF protection configurations for development/production environments
-- 📈 Enhanced DataTables with custom zero-records messaging and search functionality
+- 🔒 **Data Leakage Prevention** - Resolved critical security issue where 1,082 addresses were visible across all companies; implemented soft-delete with audit trails, protecting 574 primary addresses through two-pass unflag strategy
+- 🗄️ **Database Schema Correction** - Fixed pending supplier invisibility bug by identifying and correcting incorrect column usage (`status` vs `supplier_relationship_status`), restoring visibility for all pending relationships
+- 💳 **Transaction Management** - Resolved `TransactionManagementError` in multi-vendor order placement by implementing proper atomic transaction handling with savepoint management and retry logic
+- 📊 **Dashboard Analytics Crash** - Fixed `TypeError: float(None)` across 4 critical locations in seller dashboard analytics by implementing null-safe ternary operations with proper fallback chains
+- 🐛 **UnboundLocalError Fix** - Resolved variable scope issue in supplier management causing crashes when filtering registered suppliers by defining contact variables for both registration states
 
 #### 💻 Technologies Used
-- **Backend**: Python, Django (5.2.8), PostgreSQL, Azure Functions
+- **Backend**: Python, Django (5.2.8), PostgreSQL
 - **Frontend**: JavaScript, HTML5, CSS3, Bootstrap, jQuery
-- **Cloud**: Azure OpenAI, Azure Cognitive Services
+- **Cloud**: AWS
 - **DevOps**: Git, Docker, CI/CD with GitHub Actions
 - **Tools**: FormData API, Socket.io, DataTables, RESTful APIs
 
