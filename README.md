@@ -22,7 +22,7 @@
 ### :seedling: About Me 
 I am a **Computer Science Graduate (Class of 2024)** from the University of La Verne.   
 
-- : telescope: **Experience**: I served as a Software Development Engineer for two years, contributing to Data Analysis and Research Initiatives for the University of La Verne. 
+- :telescope: **Experience**: I served as a Software Development Engineer for two years, contributing to Data Analysis and Research Initiatives for the University of La Verne. 
 
 - :rocket: **Current Focus**: Building a **3D Game Engine** and developing **AI-powered web applications** with Azure OpenAI. 
 
