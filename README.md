@@ -19,14 +19,14 @@
 
 ---
 
-### :seedling: About Me 
-I am a **Computer Science New Graduate (Class of 2024)** from the University of La Verne.  
+### : seedling: About Me 
+I am a **Computer Science Graduate (Class of 2024)** from the University of La Verne.   
 
-- :telescope: **Experience**: I served as a Software Development Engineer for two years, contributing to Data Analysis and Research Initiatives for the University of La Verne.
+- : telescope: **Experience**: I served as a Software Development Engineer for two years, contributing to Data Analysis and Research Initiatives for the University of La Verne. 
 
-- :rocket: **Current Focus**: Building a **3D Game Engine** and diving deeper into **Low-Level Programming** and **Memory Management**.
+- :rocket: **Current Focus**: Building a **3D Game Engine** and developing **AI-powered web applications** with Azure OpenAI. 
 
-- :zap: **Interests**: Fishing, paintball/airsoft, and creating graphics applications.
+- :zap: **Interests**: Low-level programming, memory management, AI/ML applications, data processing automation, and creating graphics applications.
 
 - :mailbox: **How to reach me**: 
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ismail-abdullah-a22923229/)
@@ -35,12 +35,40 @@ I am a **Computer Science New Graduate (Class of 2024)** from the University of 
 
 ---
 
+### :briefcase: Recent Projects
+
+#### 🤖 [Team Tasks AI](https://github.com/Ismailab1/team-tasks-ai) 
+**⭐ 2 Stars | 🍴 2 Forks | TypeScript**
+> A collaborative task management web application integrating AI-powered check-ins and summaries, developed for the **Azure AI Developer Hackathon**. Built with React.js, TailwindCSS, Azure OpenAI GPT, Azure Cognitive Services, Node.js, and Azure Functions with automated CI/CD using GitHub Actions.   
+> *Last Updated: March 2025*
+
+#### 📊 [XML to Excel Converter](https://github.com/Ismailab1/XMLtoExcel)
+**Python | Data Processing**
+> A Python script that parses XML files and converts them into easy-to-read CSV format, streamlining data processing, reporting, and analysis workflows.  
+> *Last Updated: January 2025*
+
+#### 🎮 3D Game Engine
+**C++ | Low-Level Programming**
+> Building a game engine from scratch, focusing on low-level programming, memory management, and graphics rendering architecture.  
+> *In Active Development*
+
+#### 🧠 [My Recognition](https://github.com/Ismailab1/my-recognition)
+**Python | Machine Learning**
+> A machine learning project focused on recognition tasks and AI model implementation.  
+> *Last Updated: July 2025*
+
+---
+
 ### :hammer_and_wrench: Languages and Tools 
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" title="Python" width="50" height="50"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg" title="C++" width="50" height="50"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" width="50" height="50"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original.svg" title="Java" width="50" height="50"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/kotlin/kotlin-original.svg" title="Kotlin" width="50" height="50"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" width="50" height="50"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" title="Node.js" width="50" height="50"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/azure/azure-original.svg" title="Azure" width="50" height="50"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" title="HTML" width="50" height="50"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original-wordmark.svg" title="CSS" width="50" height="50"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg" title="Linux" width="50" height="50"/>&nbsp;
@@ -62,3 +90,14 @@ I am a **Computer Science New Graduate (Class of 2024)** from the University of 
 [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=Ismailab1&theme=dark&background=000000)](https://git.io/streak-stats)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Ismailab1&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
+
+---
+
+### 🎯 Technical Highlights
+- 🏆 **Azure AI Developer Hackathon** Participant
+- 🔧 Experienced in **Full-Stack Development** (React, Node.js, TypeScript)
+- ☁️ **Cloud Development** with Azure OpenAI and Azure Functions
+- 🤖 **AI/ML Integration** in production applications
+- 🛠️ **Systems Programming** (C++, Low-level memory management)
+- 📈 **Data Processing & Automation** (Python, XML, CSV)
+- 🚀 **CI/CD Pipelines** with GitHub Actions
