@@ -89,7 +89,7 @@ I am a **Computer Science Graduate (Class of 2024)** from the University of La V
 ### :fire: My Stats :
 [![GitHub Streak] (http://github-readme-streak-stats.herokuapp.com?user=Ismailab1&theme=dark&background=000000)](https://git.io/streak-stats)
 
-[![Top Langs] (https://github-readme-stats.vercel.app/api/top-langs/?username=Ismailab1&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
+[![My GitHub stats](https://github-readme-stats.vercel.app/api?username=ismailab1)](https://github.com/anuraghazra/github-readme-stats)
 ---
 
 ### 🎯 Technical Highlights
