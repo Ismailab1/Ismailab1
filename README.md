@@ -69,14 +69,14 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 ## 💼 Professional Experience
 
 ### 🛠️ Hardware Test Technician | IDC Logistics
-**September 2025 – Present**
+**September 2025 – December 2025**
 
 - 🛠️ **Workflow Optimization:** Analyzed testing workflows and identified a bottleneck in system reboot times; optimized the protocol to eliminate a 1-4 minute delay, increasing daily system throughput
 - 🖥️ **Diagnostics:** Diagnosed component-level failures on 120+ enterprise-grade workstations daily, isolating root causes in NVIDIA RTX 40/50 series GPUs and Intel CPUs
 - ⚡ **Quality Control:** Enforced strict quality control standards for high-performance computing hardware, preventing DOAs (Dead on Arrival) and reducing RMA rates
 
 ### 📶 SAT Information Technology Monitor | College Board
-**March 2025 – Present**
+**March 2025 – October 2025**
 
 - 📶 **Uptime:** Maintained 99.9% service availability for digital exam platforms, supporting 3,100+ concurrent users during high-pressure testing windows
 - 🚨 **Incident Response:** Triaged and resolved 7+ critical connectivity and hardware incidents in real-time, minimizing disruption for exam participants
