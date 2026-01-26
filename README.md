@@ -17,7 +17,7 @@
 <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/>
 </h1>
 
-:seedling: About Me
+:seedling: ***About Me***
 
 I am a Computer Science Graduate (Class of 2024) from the University of La Verne.
 
