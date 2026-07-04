@@ -102,6 +102,23 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 
 ## 💼 Recent Projects
 
+### 🧬 Life Orchestrator
+**TypeScript | React | Google Gemini AI**
+
+An AI-powered autonomous life management application that acts as a personal Chief Operating Officer (COO) for daily scheduling, relationship tracking, and task optimization.
+
+- **Features:** Local-first privacy architecture (all data in browser localStorage), AI-driven scheduling with temporal modes (Reflection/Active/Planning), Kinship Debt algorithm for relationship health tracking, and proactive task redistribution
+- **Tech:** React, TypeScript, Google Gemini API, IndexedDB-ready architecture
+- **Last Updated:** May 2026
+
+### 📶 Cisco Network Test Automation
+**Python | Network Automation**
+
+A development automation framework for Cisco network testing and validation workflows.
+
+- **Focus:** Automated network configuration testing, infrastructure validation, and development workflow automation
+- **Last Updated:** May 2025
+
 ### 🧠 Brain Tumor Classification
 **Python | TensorFlow | OpenCV | Streamlit**
 
@@ -159,6 +176,7 @@ A machine learning project focused on recognition tasks and AI model implementat
 <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" title="Python" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg" title="C++" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" width="50" height="50"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original.svg" title="Java" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/kotlin/kotlin-original.svg" title="Kotlin" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" title="HTML" width="50" height="50"/>&nbsp;
@@ -168,8 +186,10 @@ A machine learning project focused on recognition tasks and AI model implementat
 ### 🌐 Frameworks, Cloud & Databases
 
 <div>
+<img src="https://github.com/devicons/devicon/blob/master/icons/django/django-plain.svg" title="Django" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" title="Node.js" width="50" height="50"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" title="AWS" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/azure/azure-original.svg" title="Azure" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original-wordmark.svg" title="MySQL" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original-wordmark.svg" title="PostgreSQL" width="50" height="50"/>&nbsp;
@@ -194,8 +214,10 @@ A machine learning project focused on recognition tasks and AI model implementat
 ## 🎯 Technical Highlights
 
 - 🏆 Azure AI Developer Hackathon Participant
-- 🔧 Experienced in Full-Stack Development (React, Node.js, TypeScript)
-- ☁️ Cloud Development with Azure OpenAI and Azure Functions
+- 🧬 AI-Powered Life Management (Google Gemini, Local-First Architecture)
+- 🔧 Experienced in Full-Stack Development (Django, React, Node.js, TypeScript)
+- ☁️ Cloud Development with AWS, Azure OpenAI, and Azure Functions
+- 📶 Network Automation & Infrastructure Testing (Cisco)
 - 🤖 AI/ML Integration in production applications
 - 🛠️ Systems Programming (C++, Low-level memory management)
 - 📈 Data Processing & Automation (Python, XML, CSV)
