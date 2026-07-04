@@ -111,6 +111,21 @@ An AI-powered autonomous life management application that acts as a personal Chi
 - **Tech:** React, TypeScript, Google Gemini API, IndexedDB-ready architecture
 - **Last Updated:** May 2026
 
+### ⚔️ Einherjar Combat Demo
+**C# | Unity | Game Jam**
+
+A 2D action-combat game set in Norse mythology, built during a game jam. Designed and implemented core gameplay systems from scratch.
+
+- **My Contributions:**
+  - ⚔️ **Projectile Parry System** — Full two-script parry mechanic: deflects incoming enemy projectiles mid-swing using `Vector2.Reflect`, redirecting them back at enemies with correct collision logic and audio feedback
+  - 💨 **Health-Based Dash** — Dash costs HP and rewards low-HP aggression: distance scales dynamically up to 1.9× at low health, with invincibility frames
+  - 🩸 **Lifesteal System** — Fixed and completed broken lifesteal targeting logic, wired to normalized health checks, balanced heal values
+  - 🔊 **Audio Engine** — Built singleton `AudioEngine.cs` from scratch: sourced real SFX, wired hit/swing sounds to events, added pitch randomization (0.9–1.1)
+  - ✨ **VFX Engine** — Built singleton `VisualFXEngine.cs` for combat visual effects (hit bursts, damage flash) using pooled prefab spawning
+  - 🧌 **Frost Giant Enemy** — Created animation controller and tuned prefab movement speed
+- **Play it:** [itch.io](https://bluelord22.itch.io/einherjar)
+- **Source:** [GitHub](https://github.com/Ismailab1/Gamplay-First-Game-Jam-Einherjar-Combat-Demo)
+
 ### 📶 Cisco Network Test Automation
 **Python | Network Automation**
 
@@ -175,6 +190,7 @@ A machine learning project focused on recognition tasks and AI model implementat
 <div>
 <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" title="Python" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg" title="C++" width="50" height="50"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/csharp/csharp-original.svg" title="C#" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original.svg" title="Java" width="50" height="50"/>&nbsp;
@@ -186,6 +202,7 @@ A machine learning project focused on recognition tasks and AI model implementat
 ### 🌐 Frameworks, Cloud & Databases
 
 <div>
+<img src="https://github.com/devicons/devicon/blob/master/icons/unity/unity-original.svg" title="Unity" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/django/django-plain.svg" title="Django" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" title="Node.js" width="50" height="50"/>&nbsp;
@@ -214,6 +231,7 @@ A machine learning project focused on recognition tasks and AI model implementat
 ## 🎯 Technical Highlights
 
 - 🏆 Azure AI Developer Hackathon Participant
+- ⚔️ Game Jam Shipped Title (Unity, C#, Gameplay Systems Design)
 - 🧬 AI-Powered Life Management (Google Gemini, Local-First Architecture)
 - 🔧 Experienced in Full-Stack Development (Django, React, Node.js, TypeScript)
 - ☁️ Cloud Development with AWS, Azure OpenAI, and Azure Functions
