@@ -42,13 +42,16 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 - 📱 **Mobile Order Management** — Developed unified cart system with localStorage persistence, one-tap checkout, and RFQ (Request for Quote) support
 - 🗺️ **Address Management System** — Architected soft-delete solution with audit trails, fixing data leakage affecting 1,082+ addresses
 - 📄 **Document Upload System** — Built FormData/Fetch API-based file upload with client/server validation supporting PDF, PNG, JPG formats
+- 📋 **Mobile Discrepancy Reporting** — Full audit-and-closure pass against 10 acceptance criteria; rewrote `mobile_discrepancy_list` view (root-caused variable mismatch), added per-type icons/colors, quantity validation clamped to valid range (server + client), photo filename conventions, per-photo error/retry logic, and pre-validation that prevents duplicate pending reports before `transaction.atomic()`
+- 🛍️ **Order History & Reorder** — Built paginated, filterable buyer Order History page with color-coded status badges and one-click reorder (skips deleted products, IDOR-protected). Rewrote Purchase Details as a real-data view with live Stripe session status retrieval scoped to connected accounts
 
 #### Stripe Connect & Payments:
 
-- 💳 **Stripe Integration Overhaul (9 improvements in one PR)** — Fixed buyer order-confirmation emails with itemized details, hardened receipt email routing, added card capability pre-check at checkout, configured statement descriptors on onboarding completion, and enriched seller Payment Settings with onboarding guidance
-- 🏦 **ACH Direct Payments** — Implemented Financial Connections flow, dual webhook secret verification, and async ACH payment lifecycle for connected accounts
+- 🏦 **ACH via Financial Connections (8-layer fix)** — Re-enabled ACH bank payments end-to-end: removed blocking early-return guard, added `us_bank_account` to payment methods with FC permissions, wired `stripeAccount` to frontend Stripe.js constructor (fixing 404s on FC modal), added pre-flight capability check, implemented 4 webhook handlers (`checkout.session.completed`, `async_payment_succeeded`, `payment_intent.succeeded`, `payment_intent.payment_failed`), rewrote connected-account routing to read `Stripe-Account` header directly, fixed charge expansion scoping, and added dual-secret verification
+- 💳 **Stripe Integration Overhaul (9 improvements)** — Fixed buyer order-confirmation emails with itemized details, hardened receipt email routing, added card capability pre-check at checkout, configured statement descriptors on onboarding completion, and enriched seller Payment Settings with onboarding guidance
 - 🔒 **Capability Sync** — Wired `stripe.Account.retrieve_capability()` pre-validation into checkout flow; auto-persists `stripe_capabilities` on onboarding return with zero additional API calls
 - 📧 **Receipt & Notification Fixes** — Corrected Stripe receipt email routing (`receipt_email` in `payment_intent_data`) and rebuilt buyer order emails with weight/quantity-based itemized line details
+- 🚫 **Fulfillment Blocking** — Added `fulfillment_blocked` guard to 4 seller dashboard functions and mobile fulfillment — sellers cannot advance order status until ACH payment confirms
 
 #### CI/CD & DevOps:
 
@@ -63,7 +66,8 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 - 📊 Implemented database migrations with rollback strategies for production safety
 - 🏗️ Designed dual-column tracking systems for business vs. technical states
 - 🔍 Created comprehensive management commands for data synchronization and validation
-- 🛡️ **IDOR Guards** — Added server-side authorization checks on all new buyer-facing endpoints
+- 🛡️ **IDOR Guards** — Added server-side authorization checks on all new buyer-facing endpoints (Order History, Purchase Details, Reorder)
+- 🗃️ **ACH Payment Model Extension** — Added 11 fields to Order model (`stripe_session_id`, `stripe_payment_intent`, `stripe_mandate_id`, `payment_method_type`, `payment_confirmed_at`, `platform_fee_amount`, `seller_receives_amount`, `fulfillment_blocked`, etc.) with merge migration reconciliation
 
 #### Bug Fixes & System Optimization:
 
@@ -71,15 +75,19 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 - 🗄️ **Database Schema Correction** — Fixed pending supplier invisibility bug by identifying and correcting incorrect column usage (status vs supplier_relationship_status)
 - 💳 **Transaction Management** — Resolved TransactionManagementError in multi-vendor order placement by implementing proper atomic transaction handling
 - 📊 **Dashboard Analytics Crash** — Fixed TypeError: float(None) across 4 critical locations in seller dashboard analytics
+- 🔄 **Checkout Race Condition** — Fixed `payment_status` endpoint returning 404 during redirect-to-webhook race window; now returns `{"processing": true}` gracefully
+- 📱 **Discrepancy List Root Cause** — Identified and fixed variable mismatch (`return_status` vs `status`) that caused discrepancy list to return zero results for all users
 
 #### 📊 Impact Metrics
 
 - ✅ 30+ Unit Tests created for POS regression and feature validation
 - ✅ 508 Invalid Addresses flagged and hidden from production UI
-- ✅ 3 Database Migrations deployed with zero downtime
+- ✅ 3,000+ lines of code contributed across Stripe, mobile, and CI features
 - ✅ 40+ Pull Requests merged addressing critical bugs and features
 - ✅ 5 Environment Promotion PRs managing full Dev → QA → Stage → Prod pipeline
 - ✅ 2 CI/CD pipeline fixes unblocking all subsequent team PR merges
+- ✅ 11 new database fields + 3 migrations deployed with zero downtime
+- ✅ 10 acceptance criteria closed in single discrepancy audit PR
 
 ---
 
