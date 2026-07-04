@@ -170,7 +170,6 @@ A 2D action-combat game set in Norse mythology, built during a game jam. Designe
   - ✨ **VFX Engine** — Built singleton `VisualFXEngine.cs` for combat visual effects (hit bursts, damage flash) using pooled prefab spawning
   - 🧌 **Frost Giant Enemy** — Created animation controller and tuned prefab movement speed
 - **Play it:** [itch.io](https://bluelord22.itch.io/einherjar)
-- **Source:** [GitHub](https://github.com/Ismailab1/Gamplay-First-Game-Jam-Einherjar-Combat-Demo)
 
 ### 📶 Cisco Network Test Automation
 **Python | Network Automation**
