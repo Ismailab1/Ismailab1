@@ -36,12 +36,47 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 
 ### 🎯 Key Achievements
 
+#### Subscription & Monetization (PR #25):
+
+- 💰 **Stripe Subscription Billing Backend** — Built the platform's first end-to-end subscription monetization system: plan selection, trial/event-code offers, Stripe Checkout session creation, webhook-driven activation, and access gating via `@require_subscription` decorator
+- 🎟️ **Event Code & Trial System** — Implemented promo/event-code validation with session-backed plan/billing selection, supporting both Stripe-billed and transaction-only bypass paths
+- 🔐 **Subscription Access Control** — Built reusable subscription-status resolver exposed globally through a context processor; gated marketplace purchases behind active subscription status
+- 🪝 **Subscription Webhooks** — Wired Stripe webhook handlers for subscription lifecycle: checkout completion activates subscriptions, syncs updates/cancellations, and handles trial expiry warnings
+- 🛠️ **Admin Tooling** — Added Django admin support for plans, event codes, company subscriptions, and purchase attempt tracking with full audit visibility
+- 🌱 **Seed Command** — Created management command to seed subscription plans with pricing tiers and feature metadata
+
 #### Full-Stack Feature Development:
 
-- 🛒 **Anonymous Customer POS System** - Engineered walk-in customer processing with Django signals, achieving zero-friction checkout for suppliers
-- 📱 **Mobile Order Management** - Developed unified cart system with localStorage persistence, one-tap checkout, and RFQ (Request for Quote) support
-- 🗺️ **Address Management System** - Architected soft-delete solution with audit trails, fixing data leakage affecting 1,082+ addresses
-- 📄 **Document Upload System** - Built FormData/Fetch API-based file upload with client/server validation supporting PDF, PNG, JPG formats
+- 🛒 **Anonymous Customer POS System** — Engineered walk-in customer processing with Django signals, achieving zero-friction checkout for suppliers
+- 📱 **Mobile Order Management** — Developed unified cart system with localStorage persistence, one-tap checkout, and RFQ (Request for Quote) support
+- 🗺️ **Address Management System** — Architected soft-delete solution with audit trails, fixing data leakage affecting 1,082+ addresses
+- 📄 **Document Upload System** — Built FormData/Fetch API-based file upload with client/server validation supporting PDF, PNG, JPG formats
+- 📋 **Mobile Discrepancy Reporting** — Full audit-and-closure pass against 10 acceptance criteria; rewrote `mobile_discrepancy_list` view (root-caused variable mismatch), added per-type icons/colors, quantity validation clamped to valid range (server + client), photo filename conventions, per-photo error/retry logic, and pre-validation that prevents duplicate pending reports before `transaction.atomic()`. Added 7-day post-fulfillment reporting window enforcement, server-side image validation, and expected-credit summary logic
+- 🛍️ **Order History & Reorder** — Built paginated, filterable buyer Order History page with color-coded status badges and one-click reorder (skips deleted products, validates inventory, accumulates cart quantities, IDOR-protected). Rewrote Purchase Details as a real-data view with live Stripe session status retrieval scoped to connected accounts
+
+#### Seller Mobile Workflow (PR #16):
+
+- 🚚 **Seller Order Hub** — Built seller-facing mobile in-transit workflow with document upload, cost review/save, and admin-only delivery override
+- 📎 **Seller Document Upload** — Implemented file upload with storage limits, file-type validation, metadata tagging, and `document_uploaded` audit events
+- 💲 **Cost Adjustment API** — Built seller cost-save endpoint that recalculates item subtotals/grand total and writes `cost_adjusted` audit events
+- 🔓 **Admin Delivery Override** — Added admin-only override API enforcing seller identity + `is_staff`, with bulk item status updates, `override_history` tracking, and ACH/payment hold checks
+- 🐛 **Buyer-Side Fixes** — Fixed rating persistence (save before photo processing) and document upload entry point for buyer in-transit flow
+
+#### Stripe Connect & Payments:
+
+- 🏦 **ACH via Financial Connections (8-layer fix)** — Re-enabled ACH bank payments end-to-end: removed blocking early-return guard, added `us_bank_account` to payment methods with FC permissions, wired `stripeAccount` to frontend Stripe.js constructor (fixing 404s on FC modal), added pre-flight capability check, implemented 4 webhook handlers (`checkout.session.completed`, `async_payment_succeeded`, `payment_intent.succeeded`, `payment_intent.payment_failed`), rewrote connected-account routing to read `Stripe-Account` header directly, fixed charge expansion scoping, and added dual-secret verification
+- 💳 **Stripe Integration Overhaul (9 improvements)** — Fixed buyer order-confirmation emails with itemized details, hardened receipt email routing, added card capability pre-check at checkout, configured statement descriptors on onboarding completion, and enriched seller Payment Settings with onboarding guidance
+- 🔒 **Capability Sync** — Wired `stripe.Account.retrieve_capability()` pre-validation into checkout flow; auto-persists `stripe_capabilities` on onboarding return with zero additional API calls
+- 📧 **Receipt & Notification Fixes** — Corrected Stripe receipt email routing (`receipt_email` in `payment_intent_data`) and rebuilt buyer order emails with weight/quantity-based itemized line details
+- 🚫 **Fulfillment Blocking** — Added `fulfillment_blocked` guard to 4 seller dashboard functions and mobile fulfillment — sellers cannot advance order status until ACH payment confirms
+
+#### CI/CD & DevOps:
+
+- 🐘 **GitHub Actions PostgreSQL Service** — Added real PostgreSQL 16 service container to PR validation workflow with health checks, enabling DB-dependent tests in CI
+- 🔧 **CI Environment Fix** — Set `DJANGO_ENV=dev` to prevent Stripe production key validation from breaking all CI runs (one-line root-cause fix)
+- 🚀 **Release Engineering** — Owned full Dev → QA → Stage → Prod branch promotion pipeline; shepherded 5 environment promotion PRs (up to 14,425 additions across 144 files per release)
+- 🐳 **Docker Cleanup** — Removed stale Dockerfile/entrypoint.sh from repo; canonicalized docker-compose as build mechanism tracked per branch
+- 🔀 **Migration Hardening** — Built merge migrations to resolve multi-branch leaf conflicts, made index-renaming idempotent with `SeparateDatabaseAndState`/guarded SQL, and cleaned up schema drift across long-lived environment branches
 
 #### Database & Architecture:
 
@@ -49,20 +84,31 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 - 📊 Implemented database migrations with rollback strategies for production safety
 - 🏗️ Designed dual-column tracking systems for business vs. technical states
 - 🔍 Created comprehensive management commands for data synchronization and validation
+- 🛡️ **IDOR Guards** — Added server-side authorization checks on all new buyer-facing endpoints (Order History, Purchase Details, Reorder)
+- 🗃️ **ACH Payment Model Extension** — Added 11 fields to Order model (`stripe_session_id`, `stripe_payment_intent`, `stripe_mandate_id`, `payment_method_type`, `payment_confirmed_at`, `platform_fee_amount`, `seller_receives_amount`, `fulfillment_blocked`, etc.) with merge migration reconciliation
 
 #### Bug Fixes & System Optimization:
 
-- 🔒 **Data Leakage Prevention** - Resolved critical security issue where 1,082 addresses were visible across all companies; implemented soft-delete with audit trails
-- 🗄️ **Database Schema Correction** - Fixed pending supplier invisibility bug by identifying and correcting incorrect column usage (status vs supplier_relationship_status)
-- 💳 **Transaction Management** - Resolved TransactionManagementError in multi-vendor order placement by implementing proper atomic transaction handling
-- 📊 **Dashboard Analytics Crash** - Fixed TypeError: float(None) across 4 critical locations in seller dashboard analytics
+- 🔒 **Data Leakage Prevention** — Resolved critical security issue where 1,082 addresses were visible across all companies; implemented soft-delete with audit trails
+- 🗄️ **Database Schema Correction** — Fixed pending supplier invisibility bug by identifying and correcting incorrect column usage (status vs supplier_relationship_status)
+- 💳 **Transaction Management** — Resolved TransactionManagementError in multi-vendor order placement by implementing proper atomic transaction handling
+- 📊 **Dashboard Analytics Crash** — Fixed TypeError: float(None) across 4 critical locations in seller dashboard analytics
+- 🔄 **Checkout Race Condition** — Fixed `payment_status` endpoint returning 404 during redirect-to-webhook race window; now returns `{"processing": true}` gracefully
+- 📱 **Discrepancy List Root Cause** — Identified and fixed variable mismatch (`return_status` vs `status`) that caused discrepancy list to return zero results for all users
 
 #### 📊 Impact Metrics
 
+- ✅ 55 authored commits, 27 substantive non-merge commits since April 2026
 - ✅ 30+ Unit Tests created for POS regression and feature validation
 - ✅ 508 Invalid Addresses flagged and hidden from production UI
-- ✅ 3 Database Migrations deployed with zero downtime
-- ✅ 20+ Pull Requests merged addressing critical bugs and features
+- ✅ 17,000+ lines of code added across 11 merged PRs (Stripe, mobile, CI, subscriptions)
+- ✅ 40+ Pull Requests merged addressing critical bugs and features
+- ✅ 5 Environment Promotion PRs managing full Dev → QA → Stage → Prod pipeline
+- ✅ 2 CI/CD pipeline fixes unblocking all subsequent team PR merges
+- ✅ 23-file subscription billing system delivering platform's first revenue infrastructure
+- ✅ 11 new database fields + 5 migrations deployed with zero downtime
+- ✅ 10 acceptance criteria closed in single discrepancy audit PR
+- ✅ 4 Stripe webhook handlers for complete ACH payment lifecycle
 
 ---
 
@@ -101,6 +147,38 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 ---
 
 ## 💼 Recent Projects
+
+### 🧬 Life Orchestrator
+**TypeScript | React | Google Gemini AI**
+
+An AI-powered autonomous life management application that acts as a personal Chief Operating Officer (COO) for daily scheduling, relationship tracking, and task optimization.
+
+- **Features:** Local-first privacy architecture (all data in browser localStorage), AI-driven scheduling with temporal modes (Reflection/Active/Planning), Kinship Debt algorithm for relationship health tracking, and proactive task redistribution
+- **Tech:** React, TypeScript, Google Gemini API, IndexedDB-ready architecture
+- **Last Updated:** May 2026
+
+### ⚔️ Einherjar Combat Demo
+**C# | Unity | Game Jam**
+
+A 2D action-combat game set in Norse mythology, built during a game jam. Designed and implemented core gameplay systems from scratch.
+
+- **My Contributions:**
+  - ⚔️ **Projectile Parry System** — Full two-script parry mechanic: deflects incoming enemy projectiles mid-swing using `Vector2.Reflect`, redirecting them back at enemies with correct collision logic and audio feedback
+  - 💨 **Health-Based Dash** — Dash costs HP and rewards low-HP aggression: distance scales dynamically up to 1.9× at low health, with invincibility frames
+  - 🩸 **Lifesteal System** — Fixed and completed broken lifesteal targeting logic, wired to normalized health checks, balanced heal values
+  - 🔊 **Audio Engine** — Built singleton `AudioEngine.cs` from scratch: sourced real SFX, wired hit/swing sounds to events, added pitch randomization (0.9–1.1)
+  - ✨ **VFX Engine** — Built singleton `VisualFXEngine.cs` for combat visual effects (hit bursts, damage flash) using pooled prefab spawning
+  - 🧌 **Frost Giant Enemy** — Created animation controller and tuned prefab movement speed
+- **Play it:** [itch.io](https://bluelord22.itch.io/einherjar)
+- **Source:** [GitHub](https://github.com/Ismailab1/Gamplay-First-Game-Jam-Einherjar-Combat-Demo)
+
+### 📶 Cisco Network Test Automation
+**Python | Network Automation**
+
+A development automation framework for Cisco network testing and validation workflows.
+
+- **Focus:** Automated network configuration testing, infrastructure validation, and development workflow automation
+- **Last Updated:** May 2025
 
 ### 🧠 Brain Tumor Classification
 **Python | TensorFlow | OpenCV | Streamlit**
@@ -158,7 +236,9 @@ A machine learning project focused on recognition tasks and AI model implementat
 <div>
 <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" title="Python" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg" title="C++" width="50" height="50"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/csharp/csharp-original.svg" title="C#" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" width="50" height="50"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original.svg" title="Java" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/kotlin/kotlin-original.svg" title="Kotlin" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" title="HTML" width="50" height="50"/>&nbsp;
@@ -168,8 +248,11 @@ A machine learning project focused on recognition tasks and AI model implementat
 ### 🌐 Frameworks, Cloud & Databases
 
 <div>
+<img src="https://github.com/devicons/devicon/blob/master/icons/unity/unity-original.svg" title="Unity" width="50" height="50"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/django/django-plain.svg" title="Django" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" title="Node.js" width="50" height="50"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" title="AWS" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/azure/azure-original.svg" title="Azure" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original-wordmark.svg" title="MySQL" width="50" height="50"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original-wordmark.svg" title="PostgreSQL" width="50" height="50"/>&nbsp;
@@ -193,10 +276,15 @@ A machine learning project focused on recognition tasks and AI model implementat
 
 ## 🎯 Technical Highlights
 
+- 💰 Subscription Billing & Monetization (Stripe Checkout, webhooks, access gating)
 - 🏆 Azure AI Developer Hackathon Participant
-- 🔧 Experienced in Full-Stack Development (React, Node.js, TypeScript)
-- ☁️ Cloud Development with Azure OpenAI and Azure Functions
+- ⚔️ Game Jam Shipped Title (Unity, C#, Gameplay Systems Design)
+- 🧬 AI-Powered Life Management (Google Gemini, Local-First Architecture)
+- 🔧 Experienced in Full-Stack Development (Django, React, Node.js, TypeScript)
+- ☁️ Cloud Development with AWS, Azure OpenAI, and Azure Functions
+- 📶 Network Automation & Infrastructure Testing (Cisco)
 - 🤖 AI/ML Integration in production applications
 - 🛠️ Systems Programming (C++, Low-level memory management)
 - 📈 Data Processing & Automation (Python, XML, CSV)
 - 🚀 CI/CD Pipelines with GitHub Actions
+- 🏦 Payment Systems (Stripe Connect, ACH/Financial Connections, webhook state machines)
