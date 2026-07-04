@@ -38,10 +38,24 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 
 #### Full-Stack Feature Development:
 
-- 🛒 **Anonymous Customer POS System** - Engineered walk-in customer processing with Django signals, achieving zero-friction checkout for suppliers
-- 📱 **Mobile Order Management** - Developed unified cart system with localStorage persistence, one-tap checkout, and RFQ (Request for Quote) support
-- 🗺️ **Address Management System** - Architected soft-delete solution with audit trails, fixing data leakage affecting 1,082+ addresses
-- 📄 **Document Upload System** - Built FormData/Fetch API-based file upload with client/server validation supporting PDF, PNG, JPG formats
+- 🛒 **Anonymous Customer POS System** — Engineered walk-in customer processing with Django signals, achieving zero-friction checkout for suppliers
+- 📱 **Mobile Order Management** — Developed unified cart system with localStorage persistence, one-tap checkout, and RFQ (Request for Quote) support
+- 🗺️ **Address Management System** — Architected soft-delete solution with audit trails, fixing data leakage affecting 1,082+ addresses
+- 📄 **Document Upload System** — Built FormData/Fetch API-based file upload with client/server validation supporting PDF, PNG, JPG formats
+
+#### Stripe Connect & Payments:
+
+- 💳 **Stripe Integration Overhaul (9 improvements in one PR)** — Fixed buyer order-confirmation emails with itemized details, hardened receipt email routing, added card capability pre-check at checkout, configured statement descriptors on onboarding completion, and enriched seller Payment Settings with onboarding guidance
+- 🏦 **ACH Direct Payments** — Implemented Financial Connections flow, dual webhook secret verification, and async ACH payment lifecycle for connected accounts
+- 🔒 **Capability Sync** — Wired `stripe.Account.retrieve_capability()` pre-validation into checkout flow; auto-persists `stripe_capabilities` on onboarding return with zero additional API calls
+- 📧 **Receipt & Notification Fixes** — Corrected Stripe receipt email routing (`receipt_email` in `payment_intent_data`) and rebuilt buyer order emails with weight/quantity-based itemized line details
+
+#### CI/CD & DevOps:
+
+- 🐘 **GitHub Actions PostgreSQL Service** — Added real PostgreSQL 16 service container to PR validation workflow with health checks, enabling DB-dependent tests in CI
+- 🔧 **CI Environment Fix** — Set `DJANGO_ENV=dev` to prevent Stripe production key validation from breaking all CI runs (one-line root-cause fix)
+- 🚀 **Release Engineering** — Owned full Dev → QA → Stage → Prod branch promotion pipeline; shepherded 5 environment promotion PRs (up to 14,425 additions across 144 files per release)
+- 🐳 **Docker Cleanup** — Removed stale Dockerfile/entrypoint.sh from repo; canonicalized docker-compose as build mechanism tracked per branch
 
 #### Database & Architecture:
 
@@ -49,20 +63,23 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 - 📊 Implemented database migrations with rollback strategies for production safety
 - 🏗️ Designed dual-column tracking systems for business vs. technical states
 - 🔍 Created comprehensive management commands for data synchronization and validation
+- 🛡️ **IDOR Guards** — Added server-side authorization checks on all new buyer-facing endpoints
 
 #### Bug Fixes & System Optimization:
 
-- 🔒 **Data Leakage Prevention** - Resolved critical security issue where 1,082 addresses were visible across all companies; implemented soft-delete with audit trails
-- 🗄️ **Database Schema Correction** - Fixed pending supplier invisibility bug by identifying and correcting incorrect column usage (status vs supplier_relationship_status)
-- 💳 **Transaction Management** - Resolved TransactionManagementError in multi-vendor order placement by implementing proper atomic transaction handling
-- 📊 **Dashboard Analytics Crash** - Fixed TypeError: float(None) across 4 critical locations in seller dashboard analytics
+- 🔒 **Data Leakage Prevention** — Resolved critical security issue where 1,082 addresses were visible across all companies; implemented soft-delete with audit trails
+- 🗄️ **Database Schema Correction** — Fixed pending supplier invisibility bug by identifying and correcting incorrect column usage (status vs supplier_relationship_status)
+- 💳 **Transaction Management** — Resolved TransactionManagementError in multi-vendor order placement by implementing proper atomic transaction handling
+- 📊 **Dashboard Analytics Crash** — Fixed TypeError: float(None) across 4 critical locations in seller dashboard analytics
 
 #### 📊 Impact Metrics
 
 - ✅ 30+ Unit Tests created for POS regression and feature validation
 - ✅ 508 Invalid Addresses flagged and hidden from production UI
 - ✅ 3 Database Migrations deployed with zero downtime
-- ✅ 20+ Pull Requests merged addressing critical bugs and features
+- ✅ 40+ Pull Requests merged addressing critical bugs and features
+- ✅ 5 Environment Promotion PRs managing full Dev → QA → Stage → Prod pipeline
+- ✅ 2 CI/CD pipeline fixes unblocking all subsequent team PR merges
 
 ---
 
