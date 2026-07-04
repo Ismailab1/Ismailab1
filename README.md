@@ -36,14 +36,31 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 
 ### 🎯 Key Achievements
 
+#### Subscription & Monetization (PR #25):
+
+- 💰 **Stripe Subscription Billing Backend** — Built the platform's first end-to-end subscription monetization system: plan selection, trial/event-code offers, Stripe Checkout session creation, webhook-driven activation, and access gating via `@require_subscription` decorator
+- 🎟️ **Event Code & Trial System** — Implemented promo/event-code validation with session-backed plan/billing selection, supporting both Stripe-billed and transaction-only bypass paths
+- 🔐 **Subscription Access Control** — Built reusable subscription-status resolver exposed globally through a context processor; gated marketplace purchases behind active subscription status
+- 🪝 **Subscription Webhooks** — Wired Stripe webhook handlers for subscription lifecycle: checkout completion activates subscriptions, syncs updates/cancellations, and handles trial expiry warnings
+- 🛠️ **Admin Tooling** — Added Django admin support for plans, event codes, company subscriptions, and purchase attempt tracking with full audit visibility
+- 🌱 **Seed Command** — Created management command to seed subscription plans with pricing tiers and feature metadata
+
 #### Full-Stack Feature Development:
 
 - 🛒 **Anonymous Customer POS System** — Engineered walk-in customer processing with Django signals, achieving zero-friction checkout for suppliers
 - 📱 **Mobile Order Management** — Developed unified cart system with localStorage persistence, one-tap checkout, and RFQ (Request for Quote) support
 - 🗺️ **Address Management System** — Architected soft-delete solution with audit trails, fixing data leakage affecting 1,082+ addresses
 - 📄 **Document Upload System** — Built FormData/Fetch API-based file upload with client/server validation supporting PDF, PNG, JPG formats
-- 📋 **Mobile Discrepancy Reporting** — Full audit-and-closure pass against 10 acceptance criteria; rewrote `mobile_discrepancy_list` view (root-caused variable mismatch), added per-type icons/colors, quantity validation clamped to valid range (server + client), photo filename conventions, per-photo error/retry logic, and pre-validation that prevents duplicate pending reports before `transaction.atomic()`
-- 🛍️ **Order History & Reorder** — Built paginated, filterable buyer Order History page with color-coded status badges and one-click reorder (skips deleted products, IDOR-protected). Rewrote Purchase Details as a real-data view with live Stripe session status retrieval scoped to connected accounts
+- 📋 **Mobile Discrepancy Reporting** — Full audit-and-closure pass against 10 acceptance criteria; rewrote `mobile_discrepancy_list` view (root-caused variable mismatch), added per-type icons/colors, quantity validation clamped to valid range (server + client), photo filename conventions, per-photo error/retry logic, and pre-validation that prevents duplicate pending reports before `transaction.atomic()`. Added 7-day post-fulfillment reporting window enforcement, server-side image validation, and expected-credit summary logic
+- 🛍️ **Order History & Reorder** — Built paginated, filterable buyer Order History page with color-coded status badges and one-click reorder (skips deleted products, validates inventory, accumulates cart quantities, IDOR-protected). Rewrote Purchase Details as a real-data view with live Stripe session status retrieval scoped to connected accounts
+
+#### Seller Mobile Workflow (PR #16):
+
+- 🚚 **Seller Order Hub** — Built seller-facing mobile in-transit workflow with document upload, cost review/save, and admin-only delivery override
+- 📎 **Seller Document Upload** — Implemented file upload with storage limits, file-type validation, metadata tagging, and `document_uploaded` audit events
+- 💲 **Cost Adjustment API** — Built seller cost-save endpoint that recalculates item subtotals/grand total and writes `cost_adjusted` audit events
+- 🔓 **Admin Delivery Override** — Added admin-only override API enforcing seller identity + `is_staff`, with bulk item status updates, `override_history` tracking, and ACH/payment hold checks
+- 🐛 **Buyer-Side Fixes** — Fixed rating persistence (save before photo processing) and document upload entry point for buyer in-transit flow
 
 #### Stripe Connect & Payments:
 
@@ -59,6 +76,7 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 - 🔧 **CI Environment Fix** — Set `DJANGO_ENV=dev` to prevent Stripe production key validation from breaking all CI runs (one-line root-cause fix)
 - 🚀 **Release Engineering** — Owned full Dev → QA → Stage → Prod branch promotion pipeline; shepherded 5 environment promotion PRs (up to 14,425 additions across 144 files per release)
 - 🐳 **Docker Cleanup** — Removed stale Dockerfile/entrypoint.sh from repo; canonicalized docker-compose as build mechanism tracked per branch
+- 🔀 **Migration Hardening** — Built merge migrations to resolve multi-branch leaf conflicts, made index-renaming idempotent with `SeparateDatabaseAndState`/guarded SQL, and cleaned up schema drift across long-lived environment branches
 
 #### Database & Architecture:
 
@@ -80,14 +98,17 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 
 #### 📊 Impact Metrics
 
+- ✅ 55 authored commits, 27 substantive non-merge commits since April 2026
 - ✅ 30+ Unit Tests created for POS regression and feature validation
 - ✅ 508 Invalid Addresses flagged and hidden from production UI
-- ✅ 3,000+ lines of code contributed across Stripe, mobile, and CI features
+- ✅ 17,000+ lines of code added across 11 merged PRs (Stripe, mobile, CI, subscriptions)
 - ✅ 40+ Pull Requests merged addressing critical bugs and features
 - ✅ 5 Environment Promotion PRs managing full Dev → QA → Stage → Prod pipeline
 - ✅ 2 CI/CD pipeline fixes unblocking all subsequent team PR merges
-- ✅ 11 new database fields + 3 migrations deployed with zero downtime
+- ✅ 23-file subscription billing system delivering platform's first revenue infrastructure
+- ✅ 11 new database fields + 5 migrations deployed with zero downtime
 - ✅ 10 acceptance criteria closed in single discrepancy audit PR
+- ✅ 4 Stripe webhook handlers for complete ACH payment lifecycle
 
 ---
 
@@ -255,6 +276,7 @@ A machine learning project focused on recognition tasks and AI model implementat
 
 ## 🎯 Technical Highlights
 
+- 💰 Subscription Billing & Monetization (Stripe Checkout, webhooks, access gating)
 - 🏆 Azure AI Developer Hackathon Participant
 - ⚔️ Game Jam Shipped Title (Unity, C#, Gameplay Systems Design)
 - 🧬 AI-Powered Life Management (Google Gemini, Local-First Architecture)
@@ -265,3 +287,4 @@ A machine learning project focused on recognition tasks and AI model implementat
 - 🛠️ Systems Programming (C++, Low-level memory management)
 - 📈 Data Processing & Automation (Python, XML, CSV)
 - 🚀 CI/CD Pipelines with GitHub Actions
+- 🏦 Payment Systems (Stripe Connect, ACH/Financial Connections, webhook state machines)
