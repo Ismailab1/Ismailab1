@@ -148,6 +148,20 @@ I am a Computer Science Graduate (Class of 2024) from the University of La Verne
 
 ## 💼 Recent Projects
 
+### 📱 AI Notifications Management System
+**Python | Claude AI | Faster-Whisper | HackerRank Orchestrate Hackathon (August 2026)**
+
+A solo 24-hour hackathon build: an AI notification router for WhatsApp that decides notify/digest/mute per message using a deterministic safety layer + Claude-based reasoning over text, images, and voice notes.
+
+- **Pipeline:** Media extraction → safety pre-filter → context assembly → evidence retrieval → LLM reasoning → calibration
+- **Key Features:**
+  - 🔒 **Deterministic Safety Layer** — Regex/lookup hard overrides for prompt injection, confirmed scam senders, and brand-impersonation domains (no LLM, unit-tested in isolation)
+  - 🖼️ **Multimodal Processing** — Claude vision for image posters, local Faster-Whisper transcription for voice notes, cached per `media_id`
+  - 🧠 **Context-Aware Routing** — Graded engagement scoring per relationship with explicit mute/opt-out signals weighted above passive disengagement
+  - 🛡️ **Zero Scam Leakage** — Invariant enforced on every run: zero scam/spam-classified messages ever routed to `notify`
+- **Results:** 29/30 sample accuracy, 32 unit tests (no API key needed), 110 messages routed (55 muted, 37 notified, 18 digested)
+- **Repo:** [ai-notifications-management-system](https://github.com/Ismailab1/ai-notifications-management-system)
+
 ### 🧬 Life Orchestrator
 **TypeScript | React | Google Gemini AI**
 
